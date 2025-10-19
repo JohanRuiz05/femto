@@ -1,6 +1,6 @@
 module femto (
-   input 	     clk,    // system clock 
-   input 	     resetn, // reset button
+   input wire	     clk,    // system clock 
+   input wire	     resetn, // reset button
 
    output        spi_mosi,
    input         spi_miso,
@@ -12,10 +12,11 @@ module femto (
    input       spi_miso_ram,     // SPI RAM Master In Slave Out
    output      spi_mosi_ram,     // SPI RAM Master Out Slave In
 
-   output        wire LEDS,   // system LEDs
+   output wire   LEDS,   // system LEDs
    input 	     RXD,    // UART receive
    output 	     TXD     // UART transmit
 );
+	
    wire [31:0] mem_address;
    reg  [31:0] mem_rdata;
    wire mem_rstrb;
@@ -25,8 +26,7 @@ module femto (
    wire mapped_spi_flash_rbusy;
 
 
-
-
+	
    FemtoRV32 CPU(
       .clk(clk),
       .reset(resetn),		 
@@ -59,6 +59,8 @@ module femto (
 
    wire spi_ram_rbusy;
    wire spi_ram_wbusy;
+
+	
    MappedSPIRAM mapped_spi_ram(
       .clk(clk),
       .reset(resetn),
@@ -158,7 +160,7 @@ module femto (
         16'h0000: cs= 7'b0000001; 	//RAM
         16'h0040: cs= 7'b0100000; 	//uart
         16'h0041: cs= 7'b0010000;	//gpio
-        16'h0042: cs= 7'b0001000;	//mult
+        //16'h0042: cs= 7'b0001000;	//mult
         16'h0043: cs= 7'b0000100;	//div
         16'h0044: cs= 7'b0000010;	//bin_to_bcd
         16'h0001: cs= 7'b1000000;   //dpRAM
@@ -172,7 +174,7 @@ module femto (
         7'b1000000: mem_rdata = dpram_dout;
         7'b0100000: mem_rdata = uart_dout;
 //        7'b0010000: mem_rdata = gpio_dout;
-        7'b0001000: mem_rdata = mult_dout;
+//        7'b0001000: mem_rdata = mult_dout;
 //        7'b0000100: mem_rdata = div_dout;
 //        7'b0000010: mem_rdata = bin2bcd_dout;
         7'b0000001: mem_rdata = RAM_rdata;
