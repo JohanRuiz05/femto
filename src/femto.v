@@ -14,7 +14,7 @@ module tt_um_femto (
 	
 	input  wire       ena,      // always 1 when the design is powered, so you can ignore it
 
-   	output wire  LEDS     // UART LEDS
+   	output wire  LEDS,     // UART LEDS
 	input 	     RXD,    // UART receive
    	output 	     TXD     // UART transmit
 );
