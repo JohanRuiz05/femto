@@ -1,6 +1,6 @@
 module tt_um_femto (
 	input wire	     clk,    // system clock 
-   	input wire	     resetn, // reset button
+   	input wire	     reset_n, // reset button
 
    	output        spi_mosi,
    	input         spi_miso,
