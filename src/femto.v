@@ -1,20 +1,21 @@
 module tt_um_femto (
-   input wire	     clk,    // system clock 
-   input wire	     resetn, // reset button
+	input wire	     clk,    // system clock 
+   	input wire	     resetn, // reset button
 
-   output        spi_mosi,
-   input         spi_miso,
-   output        spi_cs_n,
-   output        spi_clk,
+   	output        spi_mosi,
+   	input         spi_miso,
+   	output        spi_cs_n,
+   	output        spi_clk,
 
-   output      spi_clk_ram,      // SPI RAM Clock
-   output      spi_cs_n_ram,     // SPI RAM Chip Select, Active Low
-   input       spi_miso_ram,     // SPI RAM Master In Slave Out
-   output      spi_mosi_ram,     // SPI RAM Master Out Slave In
+   	output      spi_clk_ram,      // SPI RAM Clock
+   	output      spi_cs_n_ram,     // SPI RAM Chip Select, Active Low
+  	input       spi_miso_ram,     // SPI RAM Master In Slave Out
+   	output      spi_mosi_ram,     // SPI RAM Master Out Slave In
+	
+	input  wire       ena,      // always 1 when the design is powered, so you can ignore it
 
-   output wire   LEDS,   // system LEDs
-   input 	     RXD,    // UART receive
-   output 	     TXD     // UART transmit
+   	input 	     RXD,    // UART receive
+   	output 	     TXD     // UART transmit
 );
 	
    wire [31:0] mem_address;
