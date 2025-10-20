@@ -5,13 +5,13 @@ project:
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "This project is dedicated to the full physical implementation of a SoC based on the RISC-V architecture, building on the FemtoRV32 project"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     30000000       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "femto"
+  top_module:  "femto.v"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
@@ -42,7 +42,7 @@ pinout:
   uo[0]: "spi_mosi"
   uo[1]: "spi_cs_n"
   uo[2]: "spi_clk"
-  uo[3]: "LEDS"
+  uo[3]: ""
   uo[4]: "TXD"
   uo[5]: "spi_clk_ram"
   uo[6]: "spi_cs_n_ram"
