@@ -104,7 +104,7 @@ module tt_um_femto (
 
    wire [31:0] uart_dout;
 //   wire [31:0] gpio_dout;
-   wire [31:0] mult_dout;
+//   wire [31:0] mult_dout;
 //   wire [31:0] div_dout;
 //   wire [31:0] bin2bcd_dout;
    wire [31:0] dpram_dout;
