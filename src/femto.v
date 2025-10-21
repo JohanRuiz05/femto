@@ -185,7 +185,7 @@ module tt_um_femto (
 			case (cs)
         
 				7'b1000000: mem_rdata = dpram_dout;
-				7'b0100000: mem_rdata = uart_dout:
+				7'b0100000: mem_rdata = uart_dout;
 				// 7'b0010000: mem_rdata = gpio_dout;
 				// 7'b0001000: mem_rdata = mult_dout;
 				// 7'b0000100: mem_rdata = div_dout;
