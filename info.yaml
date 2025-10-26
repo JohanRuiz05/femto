@@ -44,7 +44,7 @@ pinout:
   uo[0]: "spi_mosi"
   uo[1]: "spi_cs_n"
   uo[2]: "spi_clk"
-  uo[3]: ""
+  uo[3]: "LEDS"
   uo[4]: "TXD"
   uo[5]: "spi_clk_ram"
   uo[6]: "spi_cs_n_ram"
