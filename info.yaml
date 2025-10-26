@@ -21,7 +21,6 @@ project:
     - "femtorv32_quark.v"
     - "perip_uart.v"
     - "uart.v"
-    - "bram.v"
     - "MappedSPIFlash.v"
     - "MappedSPIRAM.v"
 
