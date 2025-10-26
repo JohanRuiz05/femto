@@ -18,9 +18,9 @@ module tt_um_femto (
   	/* verilator lint_on SYNCASYNCNET */
   	always @(negedge clk) rst_reg_n <= rst_n;
 	
-	wire spi_miso = uio_in[0];
-	wire spi_miso_ram = uio_in[1];
-	wire RXD = uio_in[3];
+	wire spi_miso = ui_in[0];
+	wire spi_miso_ram = ui_in[1];
+	wire RXD = ui_in[3];
 	
 	wire spi_mosi;
 	wire spi_cs_n;
@@ -217,6 +217,6 @@ module tt_um_femto (
 	
 	// List all unused inputs to prevent warnings
 	
-	wire _unused = &{ena, uio_oe[7:0], uio_in[7:0], uio_out[7:0], ui_in[7:4], ui_in[2], 1'b0};
+	wire _unused = &{ena, uio_oe[7:0], uio_in[7:0], uio_out[7:0], ui_in[7:4], ui_in[2:1], 1'b0};
 	
 endmodule
