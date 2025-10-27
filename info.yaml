@@ -31,7 +31,6 @@ pinout:
   # Inputs
   ui[0]: "spi_miso"
   ui[1]: "spi_miso_ram"
-  ui[1]: ""
   ui[2]: ""
   ui[3]: "RXD"
   ui[4]: ""
