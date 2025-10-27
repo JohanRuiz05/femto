@@ -7,23 +7,23 @@
 module tb ();
    
    // Wire up the inputs and outputs:
-   reg clk;
-   reg rst_n;
+	reg clk;
+	reg rst_n;
 	reg ena;
 	wire [7:0] ui_in;
 	reg [7:0] ui_in_base;
-   reg [7:0] uio_in;
-   wire [7:0] uo_out;
-   wire [7:0] uio_out; 
-   wire [7:0] uio_oe;
-
-   wire spi_mosi = uo_out[0];
-   wire spi_cs_n = uo_out[1];
-   wire spi_clk = uo_out[2];
-   wire LEDS = uo_out[3];
+	reg [7:0] uio_in;
+	wire [7:0] uo_out;
+	wire [7:0] uio_out; 
+	wire [7:0] uio_oe;
+	
+	wire spi_mosi = uo_out[0];
+	wire spi_cs_n = uo_out[1];
+	wire spi_clk = uo_out[2];
+	wire LEDS = uo_out[3];
 	wire TXD = uo_out[4];
-   wire spi_clk_ram = uo_out[5];
-   wire spi_cs_n_ram = uo_out[6];
+	wire spi_clk_ram = uo_out[5];
+	wire spi_cs_n_ram = uo_out[6];
 	wire spi_mosi_ram = uo_out[7];
 
 	wire spi_miso = ui_in_base[0];
@@ -34,19 +34,8 @@ module tb ();
 	assign ui_in[1] = spi_miso_ram;
 	assign ui_in[3] = RXD;
 
-`ifdef GL_TEST
-  wire VPWR = 1'b1;
-  wire VGND = 1'b0;
-`endif
-   
-
   // Replace tt_um_example with your module name:
   tt_um_femto user_project (
-     `ifdef GL_TEST
-     .VPWR(VPWR),
-     .VGND(VGND),
-     `endif
-
       .ui_in  (ui_in),    // Dedicated inputs
       .uo_out (uo_out),   // Dedicated outputs
       .uio_in (uio_in),   // IOs: Input path
