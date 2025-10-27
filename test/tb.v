@@ -11,7 +11,7 @@ module tb ();
    reg rst_n;
 	reg ena;
 	wire [7:0] ui_in;
-	wire [7:0] ui_in_base;
+	reg [7:0] ui_in_base;
    reg [7:0] uio_in;
    wire [7:0] uo_out;
    wire [7:0] uio_out; 
