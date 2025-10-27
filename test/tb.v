@@ -11,6 +11,7 @@ module tb ();
    reg rst_n;
 	reg ena;
 	wire [7:0] ui_in;
+	wire [7:0] ui_in_base;
    reg [7:0] uio_in;
    wire [7:0] uo_out;
    wire [7:0] uio_out; 
@@ -23,11 +24,15 @@ module tb ();
 	wire TXD = uo_out[4];
    wire spi_clk_ram = uo_out[5];
    wire spi_cs_n_ram = uo_out[6];
-	wire spi_mosi_ram = uo_out[7];}
+	wire spi_mosi_ram = uo_out[7];
+
+	wire spi_miso = ui_in_base[0];
+	wire spi_miso_ram = ui_in_base[1];
+	wire RXD = ui_in_base[3];
 	
-	assign spi_miso = ui_in[0];
-	assign spi_miso_ram = ui_in[1];
-	assign RXD = ui_in[3];
+	assign ui_in[0] = spi_miso;
+	assign ui_in[1] = spi_miso_ram;
+	assign ui_in[3] = RXD;
 
 `ifdef GL_TEST
   wire VPWR = 1'b1;
