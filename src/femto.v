@@ -213,7 +213,7 @@ module tt_um_femto (
 
 	`endif
 	
-	assign uo_out = {spi_mosi, spi_cs_n, spi_clk, LEDS, TXD, spi_clk_ram, spi_cs_n_ram, spi_mosi_ram};
+	assign uo_out = {spi_mosi_ram, spi_cs_n_ram, spi_clk_ram, TXD, LEDS, spi_clk, spi_cs_n, spi_mosi};
 	
 	// List all unused inputs to prevent warnings
 	
