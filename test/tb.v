@@ -5,37 +5,38 @@
    that can be driven / tested by the cocotb test.py.
 */
 module tb ();
+	
+	// Dump the signals to a VCD file. You can view it with gtkwave or surfer.
+	initial begin
+    	$dumpfile("tb.vcd");
+    	$dumpvars(0, tb);
+   		#1;
+  	end
    
    // Wire up the inputs and outputs:
 	reg clk;
 	reg rst_n;
 	reg ena;
-	wire [7:0] ui_in;
-	reg [7:0] ui_in_base;
+	reg [7:0] ui_in;
 	reg [7:0] uio_in;
 	wire [7:0] uo_out;
 	wire [7:0] uio_out; 
 	wire [7:0] uio_oe;
 	
-	wire spi_mosi = uo_out[0];
-	wire spi_cs_n = uo_out[1];
-	wire spi_clk = uo_out[2];
-	wire LEDS = uo_out[3];
-	wire TXD = uo_out[4];
-	wire spi_clk_ram = uo_out[5];
-	wire spi_cs_n_ram = uo_out[6];
-	wire spi_mosi_ram = uo_out[7];
-
-	wire spi_miso = ui_in_base[0];
-	wire spi_miso_ram = ui_in_base[1];
-	wire RXD = ui_in_base[3];
+	`ifdef GL_TEST
+	wire VPWR = 1'b1;
+  	wire VGND = 1'b0;
+	`endif
 	
-	assign ui_in[0] = spi_miso;
-	assign ui_in[1] = spi_miso_ram;
-	assign ui_in[3] = RXD;
 
   // Replace tt_um_example with your module name:
   tt_um_femto user_project (
+	  // Include power ports for the Gate Level test:
+	  `ifdef GL_TEST
+      .VPWR(VPWR),
+      .VGND(VGND),
+	  `endif
+	  
       .ui_in  (ui_in),    // Dedicated inputs
       .uo_out (uo_out),   // Dedicated outputs
       .uio_in (uio_in),   // IOs: Input path
